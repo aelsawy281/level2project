@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,8 @@ Route::get('/', function () {
 /**
  * Admin routes
  */
-Route::name('admin.')->prefix('/admin')->group(function () {
+Route::name('admin.')->prefix(LaravelLocalization::setLocale().'/admin')->middleware ( [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ])
+->group(function () {
 
     Route::middleware('auth')->group(function(){
         Route::view('/', 'admin.index')->name('index');
