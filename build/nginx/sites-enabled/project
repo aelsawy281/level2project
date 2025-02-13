@@ -1,0 +1,35 @@
+server {
+
+listen 80;
+# listen 443 ssl;
+# server_name apis.project.com;
+
+root /var/www/html/project/public;
+
+index index.php index.html;
+
+# Specify the SSL certificate and key paths
+#  ssl_certificate /etc/nginx/ssl/STAR.project.com.crt;
+#  ssl_certificate_key /etc/nginx/ssl/STAR.project.com_key.txt;
+#  ssl_trusted_certificate /etc/nginx/ssl/STAR.project.com.ca-bundle;
+
+location / {
+ try_files $uri $uri/ /index.php?$query_string;
+}
+
+location ~ \.php$ {
+    fastcgi_pass php8-fpm:9000;
+    fastcgi_split_path_info ^(.+\.php)(/.*)$;
+    include fastcgi_params;
+    fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+    fastcgi_param DOCUMENT_ROOT $realpath_root;
+    fastcgi_read_timeout 300;
+}
+
+location ~ \.php$ {
+    return 404;
+}
+
+error_log /var/log/nginx/error.log;
+access_log /var/log/nginx/access.log;
+}
