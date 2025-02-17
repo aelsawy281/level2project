@@ -40,7 +40,8 @@ class ServiceController extends Controller
      */
     public function show(Service $service)
     {
-        //
+        return view('admin.services.show',get_defined_vars());
+
     }
 
     /**
