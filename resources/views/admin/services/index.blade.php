@@ -8,12 +8,15 @@ hello
         <div class="page-title-box d-sm-flex align-items-center justify-content-between mb-3">
                 <h2 class="h5 page-title">{{ __('keywords.services') }}</h2>
                 <div class="page-title-right">
-                    <a href="#" class="btn btn-primary">{{ __('keywords.add_new') }}</a>
+                    <a href="{{ route('admin.services.create') }}" class="btn btn-primary">{{ __('keywords.add_new') }}</a>
                 </div>
             </div>
 
             <div class="card shadow">
               <div class="card-body">
+                @if (session('success'))
+                  <div class="alert alert-success">{{ session('success') }}</div>
+                @endif
                 <table class="table table-hover">
                   <thead>
                     <tr>

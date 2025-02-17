@@ -22,7 +22,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.services.create');
     }
 
     /**
@@ -30,7 +30,9 @@ class ServiceController extends Controller
      */
     public function store(StoreServiceRequest $request)
     {
-        //
+        $data=$request->validated();
+        Service::create($data);
+        return to_route('admin.services.index')->with('success', __('keywords.created_successfully'));
     }
 
     /**
