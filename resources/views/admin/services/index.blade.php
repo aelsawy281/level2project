@@ -34,23 +34,31 @@ hello
                         <td>{{ $service->title }}</td>
                         <td>{{ $service->icon }}</td>
                         <td>
-                            <a href="{{ route('admin.services.edit',$service) }}" class="btn btn-sm btn-success"><i class='fe fe-edit fa-2x'></i></a>
-                            <a href="{{ route('admin.services.show',$service) }}" class="btn btn-sm btn-primary"><i class='fe fe-eye fa-2x'></i></a>
-                            <a href="#"  class="btn btn-sm btn-danger"><i class='fe fe-trash-2 fa-2x'></i></a>
+                            <a href="{{ route('admin.services.edit', ['service' => $service] )}}" class="btn btn-sm btn-success"><i class='fe fe-edit fa-2x'></i></a>
+                            <a href="{{ route('admin.services.show', ['service' => $service] )}}" class="btn btn-sm btn-primary"><i class='fe fe-eye fa-2x'></i></a>
+                            {{-- <a href="#"  class="btn btn-sm btn-danger"><i class='fe fe-trash-2 fa-2x'></i></a> --}}
+                            <form method="post" action="{{ route('admin.services.destroy', ['service' => $service] )}}" class="d-inline" id="deleteForm-{{ $service->id }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="button" onclick="confirmDelete({{$service->id}})" class="btn btn-sm btn-danger" ><i class='fe fe-trash-2 fa-2x'></i></button>
+                            </form>
                         </td>
                       </tr>
                     @endforeach
                    @else
-                   <tr>
-                    <td colspan="100%">
-                        <div class="alert alert-danger">{{ __('keywords.no_records_found') }}</div>
-                    </td>
-                  </tr>
+                     <x-empty-alert></x-empty-alert>
                   @endif
                   </tbody>
                 </table>
                 {{ $services->render('pagination::bootstrap-4') }}
               </div>
             </div>
-          </div> <!-- simple table -->
+          </div>
+         <script>
+            function confirmDelete(id) {
+                if (confirm('Are you sure you want to delete this record ?')) {
+                     document.getElementById('deleteForm-' + id).submit();
+                }
+            }
+      </script>
 @endsection
