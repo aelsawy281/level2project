@@ -8,7 +8,7 @@ hello
         <div class="page-title-box d-sm-flex align-items-center justify-content-between mb-3">
                 <h2 class="h5 page-title">{{ __('keywords.services') }}</h2>
                 <div class="page-title-right">
-                    <a href="{{ route('admin.services.create') }}" class="btn btn-primary">{{ __('keywords.add_new') }}</a>
+                    <x-action-button href="{{ route('admin.services.create') }}" type="create"></x-action-button>
                 </div>
             </div>
 
@@ -32,9 +32,8 @@ hello
                         <td>{{ $service->title }}</td>
                         <td>{{ $service->icon }}</td>
                         <td>
-                            <a href="{{ route('admin.services.edit', ['service' => $service] )}}" class="btn btn-sm btn-success"><i class='fe fe-edit fa-2x'></i></a>
-                            <a href="{{ route('admin.services.show', ['service' => $service] )}}" class="btn btn-sm btn-primary"><i class='fe fe-eye fa-2x'></i></a>
-                            {{-- <a href="#"  class="btn btn-sm btn-danger"><i class='fe fe-trash-2 fa-2x'></i></a> --}}
+                            <x-action-button href="{{ route('admin.services.edit', ['service' => $service] )}}" type="edit"></x-action-button>
+                            <x-action-button href="{{ route('admin.services.show', ['service' => $service] )}}" type="show"></x-action-button>
                             <form method="post" action="{{ route('admin.services.destroy', ['service' => $service] )}}" class="d-inline" id="deleteForm-{{ $service->id }}">
                                 @csrf
                                 @method('DELETE')
