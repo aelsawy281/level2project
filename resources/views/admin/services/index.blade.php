@@ -14,9 +14,7 @@ hello
 
             <div class="card shadow">
               <div class="card-body">
-                @if (session('success'))
-                  <div class="alert alert-success">{{ session('success') }}</div>
-                @endif
+                <x-success-alert></x-success-alert>
                 <table class="table table-hover">
                   <thead>
                     <tr>
