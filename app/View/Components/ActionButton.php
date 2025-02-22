@@ -24,7 +24,7 @@ class ActionButton extends Component
             $this->text= "<i class='fe fe-edit fa-2x'></i>";
         }
         else if($type=="show"){
-            $this->color="primary";
+            $this->color="warning";
             $this->text= "<i class='fe fe-eye fa-2x'></i>";
         }
     }

@@ -1,3 +1,3 @@
-<a href="{{$href }}" class="btn btn-{{ $color }}">
+<a href="{{$href }}" class="btn btn-sm btn-{{ $color }}">
     {!! $text !!}
 </a>

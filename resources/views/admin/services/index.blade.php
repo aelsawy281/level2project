@@ -1,4 +1,4 @@
-hello
+
 @extends('admin.master')
 @section('title',__('keywords.services'))
 @section('content')
@@ -34,11 +34,8 @@ hello
                         <td>
                             <x-action-button href="{{ route('admin.services.edit', ['service' => $service] )}}" type="edit"></x-action-button>
                             <x-action-button href="{{ route('admin.services.show', ['service' => $service] )}}" type="show"></x-action-button>
-                            <form method="post" action="{{ route('admin.services.destroy', ['service' => $service] )}}" class="d-inline" id="deleteForm-{{ $service->id }}">
-                                @csrf
-                                @method('DELETE')
-                                <button type="button" onclick="confirmDelete({{$service->id}})" class="btn btn-sm btn-danger" ><i class='fe fe-trash-2 fa-2x'></i></button>
-                            </form>
+                            <x-delete-button href="{{ route('admin.services.destroy', ['service' => $service] )}}" id="{{$service->id}}"> ></x-delete-button>
+
                         </td>
                       </tr>
                     @endforeach
@@ -51,11 +48,5 @@ hello
               </div>
             </div>
           </div>
-         <script>
-            function confirmDelete(id) {
-                if (confirm('Are you sure you want to delete this record ?')) {
-                     document.getElementById('deleteForm-' + id).submit();
-                }
-            }
-      </script>
+
 @endsection
