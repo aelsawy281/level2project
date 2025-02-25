@@ -42,6 +42,10 @@
              {{--testmonials  --}}
              <x-sidebar-tab href="{{ route('admin.testmonials.index') }}" icon="fe-message-circle"
              name="{{ __('keywords.testmonials') }}"></x-sidebar-tab>
+
+             {{--companies  --}}
+             <x-sidebar-tab href="{{ route('admin.companies.index') }}" icon="fe-message-circle"
+             name="{{ __('keywords.companies') }}"></x-sidebar-tab>
       </ul>
     </nav>
   </aside>

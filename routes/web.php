@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
@@ -59,6 +60,11 @@ Route::name('admin.')->prefix(LaravelLocalization::setLocale().'/admin')->middle
         //testmonial
         Route::controller(TestmonialController::class)->group(function(){
             Route::resource('testmonials', TestmonialController::class);
+        });
+
+        //company
+        Route::controller(CompanyController::class)->group(function(){
+            Route::resource('companies', CompanyController::class)->except(['show']);
         });
     });
     require __DIR__.'/auth.php';
