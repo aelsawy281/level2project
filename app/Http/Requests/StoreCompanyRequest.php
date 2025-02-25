@@ -22,7 +22,7 @@ class StoreCompanyRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'image' => 'nullable|image|mimes:jpg,png'
+            'image' => 'required|image|mimes:jpg,png'
         ];
     }
 
