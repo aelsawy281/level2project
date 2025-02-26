@@ -44,11 +44,11 @@
              name="{{ __('keywords.testmonials') }}"></x-sidebar-tab>
 
              {{--companies  --}}
-             <x-sidebar-tab href="{{ route('admin.companies.index') }}" icon="fe-message-circle"
+             <x-sidebar-tab href="{{ route('admin.companies.index') }}" icon="fe-home"
              name="{{ __('keywords.companies') }}"></x-sidebar-tab>
 
              {{--members  --}}
-               <x-sidebar-tab href="{{ route('admin.members.index') }}" icon="fe-message-circle"
+               <x-sidebar-tab href="{{ route('admin.members.index') }}" icon="fe-users"
                name="{{ __('keywords.members') }}"></x-sidebar-tab>
       </ul>
     </nav>

@@ -65,6 +65,12 @@ return [
     'add_new_company' => 'Add New Company',
     'edit_company'    => 'Edit Company',
 
+      // members module
+      'members'        => 'Members',
+      'add_new_member' => 'Add New Member',
+      'show_member'    => 'Show Member',
+      'edit_member'    => 'Edit Member',
+
     // settings module
     'settings'  => 'Settings',
     'address'   => 'Address',

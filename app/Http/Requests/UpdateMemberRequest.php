@@ -25,9 +25,9 @@ class UpdateMemberRequest extends FormRequest
              'name' => 'required|string|min:2',
              'position' => 'required|string|min:2',
              'image' => 'nullable|image|mimes:jpg,png',
-             'facebook' => 'required|string|min:5',
-             'twitter'=> 'required|string|min:5',
-             'linkedin'=> 'required|string|min:5',
+             'facebook' => 'nullable|string|min:5',
+             'twitter'=> 'nullable|string|min:5',
+             'linkedin'=> 'nullable|string|min:5',
         ];
     }
 

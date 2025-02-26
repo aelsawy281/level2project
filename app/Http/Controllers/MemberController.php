@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreMemberRequest;
 use App\Http\Requests\UpdateMemberRequest;
 use App\Models\Member;
+use Illuminate\Support\Facades\Storage;
 
 class MemberController extends Controller
 {
@@ -66,6 +67,19 @@ class MemberController extends Controller
     public function update(UpdateMemberRequest $request, Member $member)
     {
         $data = $request->validated();
+        if ($request->hasFile('image')) {
+            // image uploading
+            // 0- delete old image
+            Storage::delete("public/members/$member->image");
+            // 1- get image
+            $image = $request->image;
+            // 2- change it's current name
+            $newImageName = time() . '-' . $image->getClientOriginalName();
+            // 3- move image to my project
+            $image->storeAs('members', $newImageName, 'public');
+            // 4- save new name to database record
+            $data['image'] = $newImageName;
+        }
         $member->update($data);
         return to_route('admin.members.index')->with('success', __('keywords.updated_successfully'));
     }
@@ -75,6 +89,7 @@ class MemberController extends Controller
      */
     public function destroy(Member $member)
     {
+        Storage::delete("public/members/$member->image");
         $member->delete();
         return to_route('admin.members.index')->with('success', __('keywords.deleted_successfully'));
     }
