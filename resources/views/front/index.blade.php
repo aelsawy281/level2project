@@ -101,7 +101,7 @@
     <!-- Newsletter End -->
 
 
-    {{-- <x-front-services-component></x-front-services-component> --}}
+     <x-front-services-component></x-front-services-component> 
 
 
     {{-- <x-front-features-component></x-front-features-component> --}}
