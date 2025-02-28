@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreMessageRequest;
 use App\Http\Requests\StoreSubscriberRequest;
 use App\Models\Company;
+use App\Models\Message;
 use App\Models\Subscriber;
 
 class FrontController extends Controller

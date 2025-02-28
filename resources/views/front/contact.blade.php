@@ -33,7 +33,7 @@
                                         placeholder="Your Name">
                                     <label for="name">Your Name</label>
                                 </div>
-                                {{-- <x-validation-error field="name"></x-validation-error> --}}
+                                <x-validation-error field="name"></x-validation-error>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
@@ -41,7 +41,7 @@
                                         placeholder="Your Email">
                                     <label for="email">Your Email</label>
                                 </div>
-                                {{-- <x-validation-error field="email"></x-validation-error> --}}
+                               <x-validation-error field="email"></x-validation-error>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
@@ -49,14 +49,14 @@
                                         placeholder="Subject">
                                     <label for="subject">Subject</label>
                                 </div>
-                                {{-- <x-validation-error field="subject"></x-validation-error> --}}
+                                 <x-validation-error field="subject"></x-validation-error>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
                                     <textarea class="form-control" name="message" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
                                     <label for="message">Message</label>
                                 </div>
-                                {{-- <x-validation-error field="message"></x-validation-error> --}}
+                               <x-validation-error field="message"></x-validation-error> 
                             </div>
                             <div class="col-12">
                                 <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
