@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
+
 class FrontController extends Controller
 {
     public function index()
     {
+        $companies=Company::all();
         return view('front.index', get_defined_vars());
     }
 
