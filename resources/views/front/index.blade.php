@@ -77,13 +77,13 @@
                     <h3 class="text-white">Ready to get started</h3>
                     <small class="text-white">Diam elitr est dolore at sanctus nonumy.</small>
                     <div class="position-relative w-100 mt-3">
-                        <form  method="post">
+                        <form action="{{ route('front.subscriber.store') }}"  method="post">
                             @csrf
                             <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="email" name="email"
                                 placeholder="Enter Your Email" style="height: 48px;">
                             <button type="submit" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i
                                     class="fa fa-paper-plane text-primary fs-4"></i></button>
-                            {{-- <x-validation-error field="email"></x-validation-error> --}}
+                             <x-validation-error field="email"></x-validation-error>
                         </form>
                     </div>
                     @if (session('subscriber_success_msg'))
